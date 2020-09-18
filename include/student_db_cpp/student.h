@@ -25,9 +25,5 @@ class Student
          cout << studentName;
          };
     int GetGrade(){return studentGrade;};
-    void GradeUp()
-    {
-         studentGrade++;
-    };
 };
 #endif
