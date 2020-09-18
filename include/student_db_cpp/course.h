@@ -1,10 +1,36 @@
 // course.h
+using namespace std;
+#include "student.h"
+#include <iostream>
 class Course
 {
 private:
-    char[10] name;
-    Student[] students;
+    string courseName;
+    Student students[40];
+    int studentNumber;
 public:
-    char GetName();
-    Student[] GetStudents();
+    Course(string name)
+    {
+       courseName=name;
+       studentNumber = 0;
+    };
+    string GetName()
+    {
+           return courseName;
+    };
+    void GetStudents()
+    {
+        for (int studentIndex=0; studentIndex< studentNumber; studentIndex++)
+       {
+           cout << "ID: " <<students[studentIndex].GetId();
+           cout << " Name: "; 
+           students[studentIndex].GetName();
+           cout << "\n";
+       }  
+    };
+    void AddStudent(Student student)
+    {
+         students[studentNumber] = student;
+         studentNumber++;
+    };
 };
