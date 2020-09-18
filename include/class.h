@@ -5,6 +5,7 @@ private:
     int grade;
     Student[] students;
 public:
-    int GetGrade();
-    Student[] GetStudents();
+    Class(int grade);
+    int GetGrade(){return grade;};
+    Student[] GetStudents(){return students;};
 };

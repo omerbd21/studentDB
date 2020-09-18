@@ -5,6 +5,7 @@ private:
     char[10] name;
     Student[] students;
 public:
-    char GetName();
-    Student[] GetStudents();
+    Course(char[10] name);
+    char[] GetName(){return name;};
+    Student[] GetStudents(){return students;};
 };
