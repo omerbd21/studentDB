@@ -2,6 +2,7 @@
 #include "include/student_db_cpp/class.h"
 #include "include/student_db_cpp/course.h"
 #include "src/common.cpp"
+#include "src/studentFunctions.cpp"
 using namespace std;
 
 int main(int argc, char* argv[])
@@ -26,41 +27,11 @@ int main(int argc, char* argv[])
     {
       if (action == ACTIONS[0])
       {
-        int studentId;
-        string studentName;
-        int studentClass;
-        cout << "Please enter an ID, a name and a class:" << endl;
-        cin >> studentId;
-        getline(cin, studentName);
-        cin >> studentClass;
-        students[studentNumber] = Student(studentId, studentName, studentClass);
+        createStudent(&students, &studentNumber);
       }
       else if (action == ACTIONS[1])
       {
-          int studentNum;
-          int getAction;
-          cout << "Please enter the number of the student:" << endl;
-          cin >> studentNum;
-          if (sizeof(students)/ sizeof(students[0]) < studentNum)
-          {
-            cout << "The student doesn't exist" << endl;
-            goto end;
-          };
-          cout << "Please enter the number for the GET action you want." << endl;
-          cout << "1. Get ID\n2. Get Name\n3. Get Grade." << endl;
-          cin >> getAction;
-          if (getAction == 1)
-          {
-            students[studentNum].GetId();
-          }
-          else if (getAction == 2)
-          {
-               students[studentNum].GetName();
-          }
-          else
-          {
-              students[studentNum].GetGrade();
-          };
+          getStudent(&students);
       }
     }
     else if (object == OBJECTS[1])

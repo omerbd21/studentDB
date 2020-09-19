@@ -1,5 +1,4 @@
 #include <string>
-#include <vector>
 using namespace std;
 bool in_array(string value, string* array)
 {
