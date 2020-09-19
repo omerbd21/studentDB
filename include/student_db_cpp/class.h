@@ -13,6 +13,8 @@ public:
        classGrade=Grade;
        studentNumber = 0;
     };
+    Class (){
+          classGrade = 0;};
     int GetGrade()
     {
        return classGrade; 

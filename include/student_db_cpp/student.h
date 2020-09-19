@@ -19,7 +19,7 @@ class Student
        studentName=name;
        studentGrade=grade;
     };
-    Student::Student(){};
+    Student::Student(){ studentGrade = 0;};
     int GetId(){return studentId;};
     void GetName(){
          cout << studentName;

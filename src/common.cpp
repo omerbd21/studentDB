@@ -1,6 +1,15 @@
 #include <string>
+#include <vector>
 using namespace std;
-bool in_array(const std::string &value, const std::vector<string> &array)
+bool in_array(string value, string* array)
 {
-    return std::find(array.begin(), array.end(), value) != array.end();
+    int arrayLength = sizeof(array)/ sizeof(value);
+    for (int i=0; i<arrayLength; i++)
+    {
+        if (array[i] ==value)
+        {
+          return true;
+        }
+    };
+    return false;
 }
