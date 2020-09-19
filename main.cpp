@@ -3,6 +3,7 @@
 #include "include/student_db_cpp/course.h"
 #include "src/common.cpp"
 #include "src/studentFunctions.cpp"
+#include "src/classFunctions.cpp"
 using namespace std;
 
 int main(int argc, char* argv[])
@@ -38,60 +39,15 @@ int main(int argc, char* argv[])
     {
          if (action == ACTIONS[0])
          {
-           int classGrade;
-           cout << "Please enter the grade of the class:" << endl;
-           cin >> classGrade;
-           if (classGrade > 12 or classGrade < 1)
-          {
-            cout << "The class doesn't exist" << endl;
-            goto end;
-          }
-           else if (classes[classGrade-1].GetGrade() != 0)
-           {
-             cout << "There is already a class in that age group." << endl;
-           }
-           else
-           {
-               classes[classGrade-1] = Class(classGrade);
-           }
+           addClass(&classes);
          }
          else if (action == ACTIONS[1])
          {
-             int classNumber;
-             cout << "Please enter a number of class." << endl;
-             cin >> classNumber;
-             if (sizeof(classes)/ sizeof(classes[0]) < classNumber)
-             {
-              cout << "The class doesn't exist" << endl;
-              goto end;
-             };
-             int classAction;
-             cout << "Please enter a number for the action you want." << endl;
-             cout << "1. Get Grade.\n 2. Get Students" << endl;
-             cin >> classAction;
-             if (classAction == 1)
-             {
-                  cout << classes[classNumber-1].GetGrade() << endl;
-             }
-             else
-             {
-                 classes[classNumber-1].GetStudents();
-             }
+             getClass(&classes);
          }
          else
          {
-             int studentNumInSchool;
-             int classNumber;
-             cout << "Please enter a number of class." << endl;
-             cin >> classNumber;
-             if (sizeof(classes)/ sizeof(classes[0]) < classNumber)
-             {
-              cout << "The class doesn't exist" << endl;
-              goto end;
-             };
-             cout << "Please enter the number of student you want to add to the class." << endl;
-             cin >> studentNumInSchool;
-             classes[classNumber-1].AddStudent(students[studentNumInSchool]);
+             addStudentToClass(&classes, &students);
              
          }
     }

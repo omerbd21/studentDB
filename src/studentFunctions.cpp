@@ -30,17 +30,14 @@ void getStudent(Student** students)
       cin >> getAction;
       if (getAction == 1)
       {
-        Student s = *students[studentNum];
-        cout << s.GetId() << endl;
+        cout << (*students)[studentNum].GetId() << endl;
       }
       else if (getAction == 2)
       {
-           Student s = *students[studentNum];
-           s.GetName();
+           (*students)[studentNum].GetName();
       }
       else
       {
-          Student s = *students[studentNum];
-          cout << s.GetGrade() << endl;
+          cout << (*students)[studentNum].GetGrade() << endl;
       };
 }
