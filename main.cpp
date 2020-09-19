@@ -1,9 +1,9 @@
 #include <iostream>
-#include "include/student_db_cpp/class.h"
 #include "include/student_db_cpp/course.h"
 #include "src/common.cpp"
 #include "src/studentFunctions.cpp"
 #include "src/classFunctions.cpp"
+#include "src/courseFunctions.cpp"
 using namespace std;
 
 int main(int argc, char* argv[])
@@ -39,15 +39,15 @@ int main(int argc, char* argv[])
     {
          if (action == ACTIONS[0])
          {
-           addClass(&classes);
+           addClass(classes);
          }
          else if (action == ACTIONS[1])
          {
-             getClass(&classes);
+             getClass(classes);
          }
          else
          {
-             addStudentToClass(&classes, &students);
+             addStudentToClass(classes, &students);
              
          }
     }
@@ -55,47 +55,15 @@ int main(int argc, char* argv[])
     {
         if(action == ACTIONS[0])
         {
-          string courseName;
-          cout << "Please enter the name of the new course" << endl;
-          courses[courseNumber] = Course(courseName);
+          createCourse(&courses, &courseNumber);
         }
         else if (action == ACTIONS[1])
         {
-             int actionNumber;
-             int courseNumber;
-             cout << "Please enter the number of the course you want to GET:" << endl;
-             cin >> courseNumber;
-             if (sizeof(courses)/ sizeof(courses[0]) < courseNumber)
-             {
-              cout << "The course doesn't exist" << endl;
-              goto end;
-             };
-             cout << "Please enter the number of the action you want to use:" << endl;
-             cout << "1. Get Name\n2. Get Students." << endl;
-             cin >> actionNumber;
-             if (actionNumber == 1)
-             {
-               cout << courses[courseNumber].GetName() << endl;
-             }
-             else if (actionNumber == 2)
-             {
-                  courses[courseNumber].GetStudents();
-             };
+             getCourse(&courses);
         }
         else
         {
-             int studentNumInSchool;
-             int courseNumber;
-             cout << "Please enter a number of course." << endl;
-             cin >> courseNumber;
-             if (sizeof(courses)/ sizeof(courses[0]) < courseNumber)
-             {
-              cout << "The course doesn't exist" << endl;
-              goto end;
-             };
-             cout << "Please enter the number of student you want to add to the course." << endl;
-             cin >> studentNumInSchool;
-             courses[courseNumber].AddStudent(students[studentNumInSchool]);
+             addStudentToCourse(&courses, &students);
         }
     };
 end:

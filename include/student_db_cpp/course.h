@@ -2,6 +2,9 @@
 using namespace std;
 #include "student.h"
 #include <iostream>
+#ifndef COURSE_H
+#define COURSE_H
+#include "course.h"
 class Course
 {
 private:
@@ -34,3 +37,4 @@ public:
          studentNumber++;
     };
 };
+#endif

@@ -1,7 +1,7 @@
 #include <string>
 #include "../include/student_db_cpp/class.h"
 using namespace std;
-void addClass(Class** classes)
+void addClass(Class classes[12])
 {
        int classGrade;
        cout << "Please enter the grade of the class:" << endl;
@@ -11,16 +11,16 @@ void addClass(Class** classes)
         cout << "The class doesn't exist" << endl;
         return;
       }
-       else if ((*classes)[classGrade-1].GetGrade() != 0)
+       else if (classes[classGrade-1].GetGrade() != 0)
        {
          cout << "There is already a class in that age group." << endl;
        }
        else
        {
-           *classes[classGrade-1] = Class(classGrade);
+           classes[classGrade-1] = Class(classGrade);
        }
 };
-void getClass(Class** classes)
+void getClass(Class classes[12])
 {
      int classNumber;
      cout << "Please enter a number of class." << endl;
@@ -36,14 +36,14 @@ void getClass(Class** classes)
      cin >> classAction;
      if (classAction == 1)
      {
-          cout << (*classes)[classNumber-1].GetGrade() << endl;
+          cout << classes[classNumber-1].GetGrade() << endl;
      }
      else
      {
-         (*classes)[classNumber-1].GetStudents();
+         classes[classNumber-1].GetStudents();
      }
 };
-void addStudentToClass(Class** classes, Student** students)
+void addStudentToClass(Class classes[12], Student** students)
 {
      int studentNumInSchool;
      int classNumber;
@@ -56,5 +56,5 @@ void addStudentToClass(Class** classes, Student** students)
      };
      cout << "Please enter the number of student you want to add to the class." << endl;
      cin >> studentNumInSchool;
-     (*classes)[classNumber-1].AddStudent(*(students)[studentNumInSchool]);
+     classes[classNumber-1].AddStudent(*(students)[studentNumInSchool]);
 };

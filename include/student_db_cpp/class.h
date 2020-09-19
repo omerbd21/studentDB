@@ -1,6 +1,9 @@
 // class.h
 using namespace std;
 #include "student.h"
+#ifndef CLASS_H
+#define CLASS_H
+#include "class.h"
 class Class
 {
 private:
@@ -42,3 +45,4 @@ public:
          }
     };
 };
+#endif
